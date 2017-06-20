@@ -574,7 +574,7 @@ The test case covers the following web sites:
 - validation web site
 - login web site
 - logout web site
-- my anonymized (user home) web site
+- MyAnonymized (user home) web site
 
 In the source code, each of these web sites is represented by its own `[...]Page` class. For implementation the page object pattern was applied.
 
@@ -1110,7 +1110,7 @@ Whole sequence part:
 
 ```
 logoutPage=
-	myAnonymized.logout();
+	myAnonymizedPage.logout();
 
 actualLoggedOutMessage=
 	logoutPage.getLoggedOutMessage();
@@ -1121,10 +1121,10 @@ Single sequence steps:
 12. logout new user
 
 ```
-myAnonymized.logout()
+myAnonymizedPage.logout()
 ```
 
-First the logout link is made visible. Then it is being clicked and the browser automatically gets navigated to the logout page. The sequence of these steps is defined in the `MyAnonymized` class.
+First the logout link is made visible. Then it is being clicked and the browser automatically gets navigated to the logout page. The sequence of these steps is defined in the `MyAnonymizedPage` class.
 
 ```
 public LogoutPage logout()
