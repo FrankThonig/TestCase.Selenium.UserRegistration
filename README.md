@@ -351,10 +351,10 @@ ValidatePage validatePage=
 			userIDTestData);
 ```
 
-Afterwards, the displayed registration validation message is retrieved.
+Afterwards, the actual registration validation message is retrieved.
 
 ```
-String displayedRegistrationValidationMessage=
+String actualRegistrationValidationMessage=
 	validatePage.getValidationMessage();
 ```
 
@@ -370,20 +370,20 @@ In the end the assertion is called. A specific error message is set for when an 
 
 ```
 Assert.assertTrue(
-	isDisplayedRegistrationValidationMessageCorrect(
+	isActualRegistrationValidationMessageCorrect(
 		expectedRegistrationValidationMessage,
-		displayedRegistrationValidationMessage),
+		actualRegistrationValidationMessage),
 	"\n" +
-	"Displayed registration validation message is not correct.\n" +
+	"Actual registration validation message is not correct.\n" +
 	"Expected registration validation message:\n" +
 	expectedRegistrationValidationMessage +
 	"\n" +
-	"Displayed registration validation message:\n" +
-	displayedRegistrationValidationMessage +
+	"Actual registration validation message:\n" +
+	actualRegistrationValidationMessage +
 	"\n");
 ```
 
-The auxiliary method `isDisplayedRegistrationValidationMessageCorrect` determines if the contents of the expected and the displayed registration validation messages match.
+The auxiliary method `isActualRegistrationValidationMessageCorrect` determines if the contents of the expected and the actual registration validation messages match.
 
 *Sequence Part 2*
 
@@ -396,10 +396,10 @@ LogoutPage logoutPage=
 	validatePage.logout();
 ```
 
-Afterwards, the displayed logged out message is retrieved.
+Afterwards, the actual logged out message is retrieved.
 
 ```
-String displayedLoggedOutMessage=
+String actualLoggedOutMessage=
 	validatePage.getValidationMessage();
 ```
 
@@ -415,21 +415,21 @@ In the end the assertion is called. A specific error message is set for when an 
 
 ```
 Assert.assertTrue(
-	isDisplayedLoggedOutMessageCorrect(
+	isActualLoggedOutMessageCorrect(
 		expectedLoggedOutMessage,
-		displayedLoggedOutMessage),
+		actualLoggedOutMessage),
 	"\n" +
 	"Logout after new user registration.\n" +
-	"Displayed logged out message is not correct.\n" +
+	"Actual logged out message is not correct.\n" +
 	"Expected logged out message:\n" +
 	expectedLoggedOutMessage +
 	"\n" +
-	"Displayed logged out message:\n" +
-	displayedLoggedOutMessage +
+	"Actual logged out message:\n" +
+	actualLoggedOutMessage +
 	"\n");
 ```
 
-The auxiliary method `isDisplayedLoggedOutMessageCorrect` determines if the contents of the expected and the displayed logged out messages match.
+The auxiliary method `isActualLoggedOutMessageCorrect` determines if the contents of the expected and the actual logged out messages match.
 
 *Sequence Part 3*
 
@@ -452,10 +452,10 @@ MyAnonymizedPage myAnonymizedPage=
 			userIDTestData);
 ```
 
-Afterwards, the displayed logged in text is retrieved.
+Afterwards, the actual logged in text is retrieved.
 
 ```
-String displayedLoggedInText=
+String actualLoggedInText=
 	validatePage.getValidationText();
 ```
 
@@ -471,20 +471,20 @@ In the end the assertion is called. A specific error text is set for when an ass
 
 ```
 Assert.assertTrue(
-	isDisplayedLoggedInTextCorrect(
+	isActualLoggedInTextCorrect(
 		expectedLoggedInText,
-		displayedLoggedInText),
+		actualLoggedInText),
 	"\n" +
-	"Displayed logged in text is not correct.\n" +
+	"Actual logged in text is not correct.\n" +
 	"Expected logged in text:\n" +
 	expectedLoggedInText +
 	"\n" +
-	"Displayed logged in text:\n" +
-	displayedLoggedInText +
+	"Actual logged in text:\n" +
+	actualLoggedInText +
 	"\n");
 ```
 
-The auxiliary method `isDisplayedLoggedInTextCorrect` determines if the contents of the expected and the displayed logged in texts match.
+The auxiliary method `isActualLoggedInTextCorrect` determines if the contents of the expected and the actual logged in texts match.
 
 *Sequence Part 4*
 
@@ -908,7 +908,7 @@ ValidatePage validatePage=
 		_WebDriver).navigateToRegisterPage().fillOutAndExecuteRegistration(
 			userIDTestData);
 
-String displayedRegistrationValidationMessage=
+String actualRegistrationValidationMessage=
 	validatePage.getValidationMessage();
 ```
 
@@ -964,7 +964,7 @@ public ValidatePage fillOutAndExecuteRegistration(
 validatePage.getValidationMessage()
 ```
 
-After successful registration, a validation message is displayed. This message is retrieved by the `ValidatePage` class.
+After successful registration, a validation message is actual. This message is retrieved by the `ValidatePage` class.
 
 ```
 public String getValidationMessage()
@@ -984,7 +984,7 @@ Whole sequence part:
 LogoutPage logoutPage=
 	validatePage.logout();
 
-String displayedLoggedOutMessage=
+String actualLoggedOutMessage=
 	logoutPage.getLoggedOutMessage();
 ```
 
@@ -1013,7 +1013,7 @@ public LogoutPage logout()
 logoutPage.getLoggedOutMessage()
 ```
 
-After successful logout, a logged out message is displayed. This message is retrieved by the `LogoutPage` class.
+After successful logout, a logged out message is actual. This message is retrieved by the `LogoutPage` class.
 
 ```
 public String getLoggedOutMessage()
@@ -1039,7 +1039,7 @@ MyAnonymizedPage myAnonymizedPage=
 		_WebDriver).navigateToLoginPage().login(
 			userIDTestData);
 
-String displayedLoggedInText=
+String actualLoggedInText=
 	myAnonymizedPage.getUserLoggedInHoverFieldText();
 ```
 
@@ -1092,7 +1092,7 @@ public MyAnonymizedPage login(
 myAnonymizedPage.getUserLoggedInHoverFieldText()
 ```
 
-After successful login, a logged in text is displayed. This text is retrieved by the `MyAnonymizedPage` class.
+After successful login, a logged in text is actual. This text is retrieved by the `MyAnonymizedPage` class.
 
 ```
 public String getUserLoggedInHoverFieldText()
@@ -1112,7 +1112,7 @@ Whole sequence part:
 logoutPage=
 	myAnonymized.logout();
 
-displayedLoggedOutMessage=
+actualLoggedOutMessage=
 	logoutPage.getLoggedOutMessage();
 ```
 
@@ -1153,20 +1153,20 @@ The test asserts textual phrasings are given in a different segment of this docu
 
 Assert 1 states that the new user account was successfully created.
 
-A boolean statement about the acoount creation success is retrieved by comparing the expected registration validation message with the displayed registration validation message. The comparison result needs to be retrieved for the assert. This is done by the auxiliary method `isDisplayedRegistrationValidationMessageCorrect`.
+A boolean statement about the acoount creation success is retrieved by comparing the expected registration validation message with the actual registration validation message. The comparison result needs to be retrieved for the assert. This is done by the auxiliary method `isActualRegistrationValidationMessageCorrect`.
 
 ```
 Assert.assertTrue(
-	isDisplayedRegistrationValidationMessageCorrect(
+	isActualRegistrationValidationMessageCorrect(
 		expectedRegistrationValidationMessage,
-		displayedRegistrationValidationMessage),
+		actualRegistrationValidationMessage),
 	"\n" +
-	"Displayed registration validation message is not correct.\n" +
+	"Actual registration validation message is not correct.\n" +
 	"Expected registration validation message:\n" +
 	expectedRegistrationValidationMessage +
 	"\n" +
-	"Displayed registration validation message:\n" +
-	displayedRegistrationValidationMessage +
+	"Actual registration validation message:\n" +
+	actualRegistrationValidationMessage +
 	"\n");
 ```
 
@@ -1174,21 +1174,21 @@ Assert.assertTrue(
 
 Assert 2 states that the new user was successfully logged out.
 
-A boolean statement about the logout success is retrieved by comparing the expected logged out message with the displayed logged out message. The comparison result needs to be retrieved for the assert. This is done by the auxiliary method `isDisplayedLoggedOutMessageCorrect`.
+A boolean statement about the logout success is retrieved by comparing the expected logged out message with the actual logged out message. The comparison result needs to be retrieved for the assert. This is done by the auxiliary method `isActualLoggedOutMessageCorrect`.
 
 ```
 Assert.assertTrue(
-	isDisplayedLoggedOutMessageCorrect(
+	isActualLoggedOutMessageCorrect(
 		expectedLoggedOutMessage,
-		displayedLoggedOutMessage),
+		actualLoggedOutMessage),
 	"\n" +
 	"Logout after new user registration.\n" +
-	"Displayed logged out message is not correct.\n" +
+	"Actual logged out message is not correct.\n" +
 	"Expected logged out message:\n" +
 	expectedLoggedOutMessage +
 	"\n" +
-	"Displayed logged out message:\n" +
-	displayedLoggedOutMessage +
+	"Actual logged out message:\n" +
+	actualLoggedOutMessage +
 	"\n");
 ```
 
@@ -1196,20 +1196,20 @@ Assert.assertTrue(
 
 Assert 3 states that the new user was successfully logged in.
 
-A boolean statement about the login success is retrieved by comparing the expected logged in text with the displayed logged in text. The comparison result needs to be retrieved for the assert. This is done by the auxiliary method `isDisplayedLoggedInTextCorrect`.
+A boolean statement about the login success is retrieved by comparing the expected logged in text with the actual logged in text. The comparison result needs to be retrieved for the assert. This is done by the auxiliary method `isActualLoggedInTextCorrect`.
 
 ```
 Assert.assertTrue(
-	isDisplayedLoggedInTextCorrect(
+	isActualLoggedInTextCorrect(
 		expectedLoggedInText,
-		displayedLoggedInText),
+		actualLoggedInText),
 	"\n" +
-	"Displayed logged in text is not correct.\n" +
+	"Actual logged in text is not correct.\n" +
 	"Expected logged in text:\n" +
 	expectedLoggedInText +
 	"\n" +
-	"Displayed logged in text:\n" +
-	displayedLoggedInText +
+	"Actual logged in text:\n" +
+	actualLoggedInText +
 	"\n");
 ```
 

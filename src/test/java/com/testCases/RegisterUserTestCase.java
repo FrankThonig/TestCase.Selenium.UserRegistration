@@ -94,7 +94,7 @@ public class RegisterUserTestCase
 		
 		
 		
-		String displayedRegistrationValidationMessage=
+		String actualRegistrationValidationMessage=
 				validatePage.getValidationMessage();
 		
 		String expectedRegistrationValidationMessage=
@@ -102,16 +102,16 @@ public class RegisterUserTestCase
 						userIDTestData);
 		
 		Assert.assertTrue(
-				isDisplayedRegistrationValidationMessageCorrect(
+				isActualRegistrationValidationMessageCorrect(
 						expectedRegistrationValidationMessage,
-						displayedRegistrationValidationMessage),
+						actualRegistrationValidationMessage),
 				"\n" +
-				"Displayed registration validation message is not correct.\n" +
+				"Actual registration validation message is not correct.\n" +
 				"Expected registration validation message:\n" +
 				expectedRegistrationValidationMessage +
 				"\n" +
-				"Displayed registration validation message:\n" +
-				displayedRegistrationValidationMessage +
+				"Actual registration validation message:\n" +
+				actualRegistrationValidationMessage +
 				"\n");
 		
 		
@@ -119,24 +119,24 @@ public class RegisterUserTestCase
 		LogoutPage logoutPage=
 				validatePage.logout();
 		
-		String displayedLoggedOutMessage=
+		String actualLoggedOutMessage=
 				logoutPage.getLoggedOutMessage();
 		
 		String expectedLoggedOutMessage=
 				assembleExpectedLoggedOutMessage();
 		
 		Assert.assertTrue(
-				isDisplayedLoggedOutMessageCorrect(
+				isActualLoggedOutMessageCorrect(
 						expectedLoggedOutMessage,
-						displayedLoggedOutMessage),
+						actualLoggedOutMessage),
 				"\n" +
 				"Logout after new user registration.\n" +
-				"Displayed logged out message is not correct.\n" +
+				"Actual logged out message is not correct.\n" +
 				"Expected logged out message:\n" +
 				expectedLoggedOutMessage +
 				"\n" +
-				"Displayed logged out message:\n" +
-				displayedLoggedOutMessage +
+				"Actual logged out message:\n" +
+				actualLoggedOutMessage +
 				"\n");
 		
 		
@@ -150,7 +150,7 @@ public class RegisterUserTestCase
 						_WebDriver).navigateToLoginPage().login(
 								userIDTestData);
 		
-		String displayedLoggedInText=
+		String actualLoggedInText=
 				myAnonymizedPage.getUserLoggedInHoverFieldText();
 		
 		String expectedLoggedInText=
@@ -158,16 +158,16 @@ public class RegisterUserTestCase
 						userIDTestData);
 		
 		Assert.assertTrue(
-				isDisplayedLoggedInTextCorrect(
+				isActualLoggedInTextCorrect(
 						expectedLoggedInText,
-						displayedLoggedInText),
+						actualLoggedInText),
 				"\n" +
-				"Displayed logged in text is not correct.\n" +
+				"Actual logged in text is not correct.\n" +
 				"Expected logged in text:\n" +
 				expectedLoggedInText +
 				"\n" +
-				"Displayed logged in text:\n" +
-				displayedLoggedInText +
+				"Actual logged in text:\n" +
+				actualLoggedInText +
 				"\n");
 		
 		
@@ -175,24 +175,24 @@ public class RegisterUserTestCase
 		logoutPage=
 				myAnonymizedPage.logout();
 		
-		displayedLoggedOutMessage=
+		actualLoggedOutMessage=
 				logoutPage.getLoggedOutMessage();
 		
 		expectedLoggedOutMessage=
 				assembleExpectedLoggedOutMessage();
 		
 		Assert.assertTrue(
-				isDisplayedLoggedOutMessageCorrect(
+				isActualLoggedOutMessageCorrect(
 						expectedLoggedOutMessage,
-						displayedLoggedOutMessage),
+						actualLoggedOutMessage),
 				"\n" +
 				"Logout after new user login.\n" +
-				"Displayed logged out message is not correct.\n" +
+				"Actual logged out message is not correct.\n" +
 				"Expected logged out message:\n" +
 				expectedLoggedOutMessage +
 				"\n" +
-				"Displayed logged out message:\n" +
-				displayedLoggedOutMessage +
+				"Actual logged out message:\n" +
+				actualLoggedOutMessage +
 				"\n");
 		
 	}
@@ -209,29 +209,29 @@ public class RegisterUserTestCase
 		
 	}
 	
-    private boolean isDisplayedRegistrationValidationMessageCorrect(
+    private boolean isActualRegistrationValidationMessageCorrect(
     		String expectedRegistrationValidationMessage,
-    		String displayedRegistrationValidationMessage)
+    		String actualRegistrationValidationMessage)
     {
     	
-    	boolean isDisplayedRegistrationValidationMessageCorrect=
+    	boolean isActualRegistrationValidationMessageCorrect=
     			false;
     	
     	
 		
-		if(displayedRegistrationValidationMessage!=null)
+		if(actualRegistrationValidationMessage!=null)
 		{
 			
-			isDisplayedRegistrationValidationMessageCorrect=
+			isActualRegistrationValidationMessageCorrect=
 					StringContent.isString1EqualToString2(
 							expectedRegistrationValidationMessage,
-							displayedRegistrationValidationMessage);
+							actualRegistrationValidationMessage);
 			
 		}
 		
 		
 		
-		return isDisplayedRegistrationValidationMessageCorrect;
+		return isActualRegistrationValidationMessageCorrect;
     	
     }
     
@@ -246,29 +246,29 @@ public class RegisterUserTestCase
 		
 	}
 	
-    private boolean isDisplayedLoggedInTextCorrect(
+    private boolean isActualLoggedInTextCorrect(
     		String expectedLoggedInText,
-    		String displayedLoggedInText)
+    		String actualLoggedInText)
     {
     	
-    	boolean isDisplayedLoggedInTextCorrect=
+    	boolean isActualLoggedInTextCorrect=
     			false;
     	
     	
 		
-		if(displayedLoggedInText!=null)
+		if(actualLoggedInText!=null)
 		{
 			
-			isDisplayedLoggedInTextCorrect=
+			isActualLoggedInTextCorrect=
 					StringContent.isString1EqualToString2(
 							expectedLoggedInText,
-							displayedLoggedInText);
+							actualLoggedInText);
 			
 		}
 		
 		
 		
-		return isDisplayedLoggedInTextCorrect;
+		return isActualLoggedInTextCorrect;
     	
     }
     
@@ -281,29 +281,29 @@ public class RegisterUserTestCase
 		
 	}
 	
-    private boolean isDisplayedLoggedOutMessageCorrect(
+    private boolean isActualLoggedOutMessageCorrect(
     		String expectedLoggedOutMessage,
-    		String displayedLoggedOutMessage)
+    		String actualLoggedOutMessage)
     {
     	
-    	boolean isDisplayedLoggedOutMessageCorrect=
+    	boolean isActualLoggedOutMessageCorrect=
     			false;
     	
     	
 		
-		if(displayedLoggedOutMessage!=null)
+		if(actualLoggedOutMessage!=null)
 		{
 			
-			isDisplayedLoggedOutMessageCorrect=
+			isActualLoggedOutMessageCorrect=
 					StringContent.isString1EqualToString2(
 							expectedLoggedOutMessage,
-							displayedLoggedOutMessage);
+							actualLoggedOutMessage);
 			
 		}
 		
 		
 		
-		return isDisplayedLoggedOutMessageCorrect;
+		return isActualLoggedOutMessageCorrect;
     	
     }
 	
