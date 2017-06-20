@@ -1278,7 +1278,7 @@ The Maven installation is given the name of `mavenInstallation` and the director
 
 ##### Configuration
 
-Configuration of the Jenkins Pipeline is handled by the `userRegistrationPipeline_Jenkinsfile` Jenkinsfile.
+Configuration of the Jenkins Pipeline is handled by the `seleniumUserRegistrationPipeline_Jenkinsfile` Jenkinsfile.
 
 *Git configuration*
 
