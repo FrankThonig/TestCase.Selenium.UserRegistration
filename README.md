@@ -964,7 +964,7 @@ public ValidatePage fillOutAndExecuteRegistration(
 validatePage.getValidationMessage()
 ```
 
-After successful registration, a validation message is actual. This message is retrieved by the `ValidatePage` class.
+After successful registration, a validation message is displayed. This message is retrieved by the `ValidatePage` class.
 
 ```
 public String getValidationMessage()
@@ -1013,7 +1013,7 @@ public LogoutPage logout()
 logoutPage.getLoggedOutMessage()
 ```
 
-After successful logout, a logged out message is actual. This message is retrieved by the `LogoutPage` class.
+After successful logout, a logged out message is displayed. This message is retrieved by the `LogoutPage` class.
 
 ```
 public String getLoggedOutMessage()
@@ -1092,7 +1092,7 @@ public MyAnonymizedPage login(
 myAnonymizedPage.getUserLoggedInHoverFieldText()
 ```
 
-After successful login, a logged in text is actual. This text is retrieved by the `MyAnonymizedPage` class.
+After successful login, a logged in text is displayed. This text is retrieved by the `MyAnonymizedPage` class.
 
 ```
 public String getUserLoggedInHoverFieldText()
